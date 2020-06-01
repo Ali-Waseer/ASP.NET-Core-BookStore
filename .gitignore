@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs
+/AliBookStore/.vs/AliBookStore
+/AliBookStore/AliBookStore/bin/Debug/netcoreapp3.1
+/AliBookStore/AliBookStore/obj
