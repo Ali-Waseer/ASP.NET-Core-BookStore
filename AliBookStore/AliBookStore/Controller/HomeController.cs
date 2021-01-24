@@ -8,9 +8,14 @@ namespace AliBookStore
 {
     public class HomeController : Controller
     {
-        public string Index()
+        public ViewResult Index()
         {
-            return "AliBookStore";
+            return View();
+        }
+
+        public ViewResult AboutUs()
+        {
+            return View();
         }
     }
 }
