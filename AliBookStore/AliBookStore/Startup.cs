@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 
 namespace AliBookStore
@@ -26,6 +28,17 @@ namespace AliBookStore
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            //This HTTP Pipeline for Get Static files from wwwroot folder
+            app.UseStaticFiles();
+
+            //This HTTP Pipeline for Get Static files from another folder
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "MyStaticFile")),
+                RequestPath = "/MyStaticFile"
+
+            });
 
 
             app.UseRouting();
